@@ -34,9 +34,19 @@ object HelloWorld {
     greets(1) = ","
     greets.update(2, "world") // 也可以这样更新
     for (i <- 0 to 2) print(greets(i))
+    println("=======")
   }
 
+  def listsTest(): Unit = {
+    val one = 1 :: 2 :: 3 :: Nil            // Nil表示空列表， :: 操作符表示添加元素
+    val two = Nil.::(4).::(5).::(6)         // 也可以这样写
+    println(one ::: two)                    // ::: 表示列表合并成一个新的列表，注意结果是List(1, 2, 3, 6, 5, 4) 这个顺序
+  }
 
+  def tuplesTest(): Unit = {
+    val t = ("scala", 99)                   // 实际是  Tuple2[Int,String]   Tuple3表示有三个元素，最多可以有22个元素，可以自己拓展
+    println(t._1 + " - " + t._2)
+  }
 
   // 函数执行入口
   def main(args: Array[String]) = { // 返回空类型
@@ -44,5 +54,6 @@ object HelloWorld {
     println(max(44, 33))
     loopPrint()
     arrayTest()
+    listsTest()
   }
 }
